@@ -30,6 +30,7 @@ public class TestLearing {
 
         List<Apple> orderList = getOrderList(list, apple3 -> apple3.price > 10);
         System.out.println("xxx");
+        System.out.println("hwq");
 
     }
     private static List<Apple> getOrderList(List<Apple> list, ICalculate iCalculate){
