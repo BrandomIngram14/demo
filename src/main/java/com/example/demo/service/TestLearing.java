@@ -34,6 +34,7 @@ public class TestLearing {
     }
     private static List<Apple> getOrderList(List<Apple> list, ICalculate iCalculate){
         List<Apple> appleList = new ArrayList<>();
+        Map<Object, Object> map = new HashMap<>();
         for(Apple apple : list){
             if (iCalculate.caculateOrderList(apple)){
                 appleList.add(apple);
