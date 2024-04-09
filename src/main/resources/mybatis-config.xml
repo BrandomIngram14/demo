@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"/>
+
+    <settings>
+        <!--二级缓存配置-->
+        <setting name="cacheEnabled" value="true" />
+        <!--延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true" />
+        <setting name="multipleResultSetsEnabled" value="true" />
+    </settings>
+
+    <typeAliases>
+        <package name="com.example.demo.vo"/>
+    </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="com.example.demo.service.util.DateTypeHandler" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+    </typeHandlers>
+
+    <environments default="">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <package name="com.example.demo.dao"/>
+    </mappers>
+
+</configuration>
+
+

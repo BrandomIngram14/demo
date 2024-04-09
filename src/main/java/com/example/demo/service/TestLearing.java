@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.util.StopWatch;
 
 import java.util.*;
@@ -10,8 +11,36 @@ public class TestLearing {
     public static void main(String[] args) throws Exception {
 
         // 给你一个0-10^n次方之间的数，3>=n>0,求重复的数有几个
-        System.out.println(getRepeatNum(1));
+//        System.out.println(getRepeatNum(1));
+        List<Apple> list = new ArrayList<>();
+        Apple apple = new Apple(10);
+        Apple apple1 = new Apple(12);
+        Apple apple2 = new Apple(14);
+
+        list.add(apple);
+        list.add(apple1);
+        list.add(apple2);
+
+//        List<Apple> orderList = getOrderList(list, new ICalculate() {
+//            @Override
+//            public boolean caculateOrderList(Apple apple) {
+//                return apple.price > 10;
+//            }
+//        });
+
+        List<Apple> orderList = getOrderList(list, apple3 -> apple3.price > 10);
+        System.out.println("xxx");
+
     }
+    private static List<Apple> getOrderList(List<Apple> list, ICalculate iCalculate){
+        List<Apple> appleList = new ArrayList<>();
+        for(Apple apple : list){
+            if (iCalculate.caculateOrderList(apple)){
+                appleList.add(apple);
+            }
+        }
+        return  appleList;
+    };
     public static int getRepeatNum(int n){
         int count = 0;
         for(int i= 0;i<Math.pow(10,n);i++){

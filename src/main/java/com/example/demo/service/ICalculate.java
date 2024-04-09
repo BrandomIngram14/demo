@@ -1,5 +1,8 @@
 package com.example.demo.service;
 
+import java.util.List;
+
+@FunctionalInterface
 public interface ICalculate {
-    int cal(int result, int i);
+    boolean caculateOrderList(Apple apple);
 }
