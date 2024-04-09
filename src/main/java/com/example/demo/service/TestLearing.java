@@ -4,6 +4,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.util.StopWatch;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class TestLearing {
@@ -15,34 +16,30 @@ public class TestLearing {
         List<Apple> list = new ArrayList<>();
         Apple apple = new Apple(10);
         Apple apple1 = new Apple(12);
-        Apple apple2 = new Apple(14);
+        Apple apple2 = new Apple(18);
+        Apple apple3 = new Apple(14);
 
         list.add(apple);
         list.add(apple1);
         list.add(apple2);
+        list.add(apple3);
 
-//        List<Apple> orderList = getOrderList(list, new ICalculate() {
-//            @Override
-//            public boolean caculateOrderList(Apple apple) {
-//                return apple.price > 10;
-//            }
-//        });
-
-        List<Apple> orderList = getOrderList(list, apple3 -> apple3.price > 10);
+        // 过滤
+        List<Apple> collect = list.stream().filter(x -> x.getPrice() > 10).
+                collect(Collectors.toList());
+        // 打印
+        collect.stream().forEach(x-> System.out.println(x.getPrice()));
         System.out.println("xxx");
-        System.out.println("hwq");
+        // 排序
+        list.stream().sorted((o1,o2)->{return o1.getPrice()-o2.getPrice();}).
+                collect(Collectors.toList()).
+                forEach(x-> System.out.println(x.getPrice()));
+
+
+        System.out.println("xxx");
 
     }
-    private static List<Apple> getOrderList(List<Apple> list, ICalculate iCalculate){
-        List<Apple> appleList = new ArrayList<>();
-        Map<Object, Object> map = new HashMap<>();
-        for(Apple apple : list){
-            if (iCalculate.caculateOrderList(apple)){
-                appleList.add(apple);
-            }
-        }
-        return  appleList;
-    };
+
     public static int getRepeatNum(int n){
         int count = 0;
         for(int i= 0;i<Math.pow(10,n);i++){
