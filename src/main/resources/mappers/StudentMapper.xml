@@ -15,5 +15,27 @@
         select * from student LIMIT #{begin},#{pageSize}
     </select>
 
+    <select id="findAllStudent" resultType="Student" useCache="false">
+        select * from student
+    </select>
+
+    <insert id="insertStudent">
+        insert into student (
+               id,
+               name,
+               gender,
+               age,
+               create_time
+        ) values
+          <foreach collection="list"  item="student"   index="index" separator=",">
+              (
+              #{student.id ,jdbcType=INTEGER},
+              #{student.name ,jdbcType=VARCHAR},
+              #{student.gender ,jdbcType=VARCHAR},
+              #{student.age ,jdbcType=INTEGER},
+              #{student.createTime ,jdbcType=TIMESTAMP}
+              )
+          </foreach>
+    </insert>
 </mapper>
 

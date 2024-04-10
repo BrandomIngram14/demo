@@ -20,4 +20,13 @@ public interface StudentMapper {
      * @return 总条数
      */
     Long findCount();
+
+    /**
+     * 获取全部记录
+     * @return
+     */
+    List<Student> findAllStudent();
+
+
+    int insertStudent(List<Student> list);
 }

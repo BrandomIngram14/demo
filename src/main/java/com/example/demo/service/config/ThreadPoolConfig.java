@@ -3,6 +3,7 @@ package com.example.demo.service.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executors;
@@ -10,6 +11,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 @Configuration
+@EnableAsync
 public class ThreadPoolConfig {
    @Bean
     public ThreadPoolExecutor threadPoolExecutor(

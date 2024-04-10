@@ -14,9 +14,9 @@ import java.time.LocalDate;
 @Alias("Student")
 public class Student implements Serializable {
 
-    private static Integer id;
+    private  Integer id;
     private String name;
-    private transient String gender;
+    private  String gender;
     private Integer age;
     private LocalDate createTime;
 }
