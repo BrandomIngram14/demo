@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.example.demo.service.TvSeriesService;
+import com.example.demo.service.ZeRenLian;
 import com.example.demo.vo.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -16,6 +17,9 @@ import java.util.List;
 public class TvSeries {
     @Autowired
     private TvSeriesService tvSeries;
+
+    @Autowired
+    private ZeRenLian zeRenLian;
 
     @RequestMapping("/series")
     @ResponseBody
@@ -32,5 +36,10 @@ public class TvSeries {
             throw new RuntimeException(e);
         }
         return "SUCCESS";
+    }
+    @RequestMapping("/getStudent")
+    String getZhuCe(){
+          zeRenLian.handler(new Student());
+          return "Success";
     }
 }

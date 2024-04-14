@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -18,10 +19,14 @@ public class TestMianshi {
         //示例 2：
         //输入：nums = [1,1]
         //输出：[2]
-        int[] arr = {1,2,3,1};
-        int[] anInt = getInt(arr);
+//        int[] arr = {1,2,3,1};
+//        int[] anInt = getInt(arr);
+//        System.out.println("xxx");
+
         System.out.println("xxx");
+
     }
+
     private static int[] getInt(int[] arr) {
         int length = arr.length;
         if (length == 0) {
