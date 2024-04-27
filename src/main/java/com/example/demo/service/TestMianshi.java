@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
 import java.sql.Array;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -22,8 +24,14 @@ public class TestMianshi {
 //        int[] arr = {1,2,3,1};
 //        int[] anInt = getInt(arr);
 //        System.out.println("xxx");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate now = LocalDate.now();
+        String format2 = dateTimeFormatter.format(now);
 
-        System.out.println("xxx");
+        LocalDate localDate = now.minusDays(1);
+        String format = dateTimeFormatter.format(localDate);
+
+        System.out.println(format.compareTo(format2));
 
     }
 

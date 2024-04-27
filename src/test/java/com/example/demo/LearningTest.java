@@ -1,9 +1,6 @@
 package com.example.demo;
 
 import com.example.demo.service.Animal;
-import com.example.demo.service.AnimalProxy;
-import com.example.demo.service.Learntransaction;
-import com.example.demo.service.util.AnimalInterceptor;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cglib.proxy.Enhancer;
