@@ -4,8 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.example.demo.service.TvSeriesService;
 import com.example.demo.service.ZeRenLian;
 import com.example.demo.service.config.AccessDominion;
+import com.example.demo.utils.CookieUtils;
 import com.example.demo.vo.People;
 import com.example.demo.vo.Student;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.springframework.beans.BeanUtils;
@@ -67,5 +70,13 @@ public class TvSeries {
     String getZhuCe(){
           zeRenLian.handler(new Student());
           return "Success";
+    }
+
+    @RequestMapping("setCookie")
+    String setCookie(HttpServletRequest request, HttpServletResponse response){
+        String cookie = "hwq";
+        String unicode = "UTF-8";
+        CookieUtils.getCookies(request,cookie,unicode);
+        return "Success";
     }
 }
